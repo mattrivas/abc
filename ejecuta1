@@ -1,0 +1,16 @@
+f=1
+d=5
+#for f in 2
+#do
+#for d in 100
+#do
+echo f$f dim$d
+resul="F"$f"Dim"$d
+echo $resul
+total=1
+for i in $(seq 1 $total)
+do
+        ./APP ABC.cfg $f $d >>res/$resul.txt
+done #i
+#done #d
+#done #f

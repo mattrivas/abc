@@ -1,0 +1,299 @@
+								
+									   Columna
+								 x x x x x x x x x x
+								 x x x x x x x x x x	
+								 x x x x x x x x x x	
+								 x x x x x x x x x x    TopFil = 10
+							Fila x x x x x x x x x x    Top Col= 10
+								 x x x x x x x x x x
+								 x x x x x x x x x x 
+								 x x x x x x x x x x
+								 x x x x x x x x x x
+								 x x x x x x x x x x 
+
+
+/* * * * * * * * * * * * * * * * * * * * CASO 1 * * * * * * * * * * * * * * * * * * * * * */
+								 
+		if(f == 0){
+			if(c == 0){
+		/* Abajo */
+				vec_vecindario[0][0] = matrizColonia[f+1][c];
+		/* Izquierda */
+				vec_vecindario[0][1] = matrizColonia[f][maxC-1];
+		/* Arriba */
+				vec_vecindario[1][0] = matrizColonia[maxF-1][c];
+		/* Derecha */
+				vec_vecindario[1][1] = matrizColonia[f][c+1];
+			}else{
+				if(c == maxC - 1){
+			/* Abajo */
+					vec_vecindario[0][0] = matrizColonia[f+1][c];
+			/* Izquierda */
+					vec_vecindario[0][1] = matrizColonia[f][c-1];
+			/* Arriba */
+					vec_vecindario[1][0] = matrizColonia[maxF-1][c];
+			/* Derecha */
+					vec_vecindario[1][1] = matrizColonia[0][0];
+				}else{
+			/* Abajo */
+					vec_vecindario[0][0] = matrizColonia[f+1][c];
+			/* Izquierda */
+					vec_vecindario[0][1] = matrizColonia[f][c-1];
+			/* Arriba */
+					vec_vecindario[1][0] = matrizColonia[maxF-1][c];
+			/* Derecha */
+					vec_vecindario[1][1] = matrizColonia[f][c+1];
+				}
+			}
+		}else{
+			if(f == maxF - 1){
+				if(c == 0){
+			/* Abajo */
+					vec_vecindario[0][0] = matrizColonia[0][c];
+			/* Izquierda */
+					vec_vecindario[0][1] = matrizColonia[f][maxC-1];
+			/* Arriba */
+					vec_vecindario[1][0] = matrizColonia[f-1][c];
+			/* Derecha */
+					vec_vecindario[1][1] = matrizColonia[f][1];
+				}else{
+					if(c == maxC - 1){
+				/* Abajo */
+						vec_vecindario[0][0] = matrizColonia[0][c];
+				/* Izquierda */
+						vec_vecindario[0][1] = matrizColonia[f][c-1];
+				/* Arriba */
+						vec_vecindario[1][0] = matrizColonia[f-1][c];
+				/* Derecha */
+						vec_vecindario[1][1] = matrizColonia[f][0];
+					}else{
+				/* Abajo */
+						vec_vecindario[0][0] = matrizColonia[0][c];
+				/* Izquierda */
+						vec_vecindario[0][1] = matrizColonia[f][c-1];
+				/* Arriba */
+						vec_vecindario[1][0] = matrizColonia[f-1][c];
+				/* Derecha */
+						vec_vecindario[1][1] = matrizColonia[f][c+1];
+					}
+				}
+			}else{
+				if(c == 0){
+			/* Abajo */
+					vec_vecindario[0][0] = matrizColonia[f+1][c];
+			/* Izquierda */
+					vec_vecindario[0][1] = matrizColonia[f][maxC-1];
+			/* Arriba */
+					vec_vecindario[1][0] = matrizColonia[f-1][c];
+			/* Derecha */
+					vec_vecindario[1][1] = matrizColonia[f][c+1];				
+				}else{
+					if(c == maxC - 1){
+				/* Abajo */
+						vec_vecindario[0][0] = matrizColonia[f+1][c];
+				/* Izquierda */
+						vec_vecindario[0][1] = matrizColonia[f][c-1];
+				/* Arriba */
+						vec_vecindario[1][0] = matrizColonia[f-1][c];
+				/* Derecha */
+						vec_vecindario[1][1] = matrizColonia[f][0];
+					}else{
+				/* Abajo */
+						vec_vecindario[0][0] = matrizColonia[f+1][c];
+				/* Izquierda */
+						vec_vecindario[0][1] = matrizColonia[f][c-1];
+				/* Arriba */
+						vec_vecindario[1][0] = matrizColonia[f-1][c];
+				/* Derecha */
+						vec_vecindario[1][1] = matrizColonia[f][c+1];
+					}
+				}
+			}
+		}
+/* * * * * * * * * * * * * * * * * * * * CASO 2 * * * * * * * * * * * * * * * * * * * * * */
+if(f == 0){
+	if(c == 0){
+		/* Vec : Arriba izquierda - Matriz Colonia : Ultima fila ultima columna */
+		vec_vecindario[0][0] = matrizColonia[maxF-1][maxC-1];
+		/* Vec : Arriba - Matriz Colonia : Ultima fila columna */
+		vec_vecindario[0][1] = matrizColonia[maxF-1][c];
+		/* Vec : Arriba derecha - Matriz Colonia : Ultima fila columna siguiente */
+		vec_vecindario[0][2] = matrizColonia[maxF-1][c+1];
+		/* Vec : Derecha - Matriz Colonia : Fila columna siguiente */
+		vec_vecindario[1][0] = matrizColonia[f][c+1];
+		/* Vec : Abajo Derecha - Matriz Colonia : Fila siguiente columna siguiente */
+		vec_vecindario[1][1] = matrizColonia[f+1][c+1];
+		/* Vec : Abajo - Matriz Colonia : Fila siguiente columna */
+		vec_vecindario[1][2] = matrizColonia[f+1][c];
+		/* Vec : Abajo Izquierda - Matriz Colonia : Fila siguiente ultima columna */
+		vec_vecindario[2][0] = matrizColonia[f+1][maxC-1];
+		/* Vec : Izquierda - Matriz Colonia : Fila ultima columna */
+		vec_vecindario[2][1] = matrizColonia[f][maxC-1];
+		/* Vec : Centro - Matriz Colonia : Fila columna */
+		vec_vecindario[2][2] = matrizColonia[f][c];
+	}else{
+		if(c == maxC - 1){
+			/* Vec : Arriba izquierda - Matriz Colonia : Ultima fila columna anterior */
+			vec_vecindario[0][0] = matrizColonia[maxF-1][c-1];
+			/* Vec : Arriba - Matriz Colonia : Ultima fila columna */
+			vec_vecindario[0][1] = matrizColonia[maxF-1][c];
+			/* Vec : Arriba derecha - Matriz Colonia : Ultima fila primera columna */
+			vec_vecindario[0][2] = matrizColonia[maxF-1][0];
+			/* Vec : Derecha - Matriz Colonia : Fila segunda columna */
+			vec_vecindario[1][0] = matrizColonia[f][1];
+			/* Vec : Abajo Derecha - Matriz Colonia : Fila siguiente primera columna */
+			vec_vecindario[1][1] = matrizColonia[f+1][0];
+			/* Vec : Abajo - Matriz Colonia : Fila siguiente columna */
+			vec_vecindario[1][2] = matrizColonia[f+1][c];
+			/* Vec : Abajo Izquierda - Matriz Colonia : Fila siguiente columna anterior */
+			vec_vecindario[2][0] = matrizColonia[f+1][c-1];
+			/* Vec : Izquierda - Matriz Colonia : Fila columna anterior */
+			vec_vecindario[2][1] = matrizColonia[f][c-1];
+			/* Vec : Centro - Matriz Colonia : Fila columna */
+			vec_vecindario[2][2] = matrizColonia[f][c];
+		}else{
+			/* Vec : Arriba izquierda - Matriz Colonia : Ultima fila columna anterior */
+			vec_vecindario[0][0] = matrizColonia[maxF-1][c-1];
+			/* Vec : Arriba - Matriz Colonia : Ultima fila columna */
+			vec_vecindario[0][1] = matrizColonia[maxF-1][c];
+			/* Vec : Arriba derecha - Matriz Colonia : Ultima fila columna siguiente */
+			vec_vecindario[0][2] = matrizColonia[maxF-1][c+1];
+			/* Vec : Derecha - Matriz Colonia : Primera fila columna siguiente */
+			vec_vecindario[1][0] = matrizColonia[f][c+1];
+			/* Vec : Abajo Derecha - Matriz Colonia : Fila siguiente columna siguiente */
+			vec_vecindario[1][1] = matrizColonia[f+1][c+1];
+			/* Vec : Abajo - Matriz Colonia : Fila siguiente columna */
+			vec_vecindario[1][2] = matrizColonia[f+1][c];
+			/* Vec : Abajo Izquierda - Matriz Colonia : Fila siguiente columna anterior */
+			vec_vecindario[2][0] = matrizColonia[f+1][c-1];
+			/* Vec : Izquierda - Matriz Colonia : Fila columna anterior */
+			vec_vecindario[2][1] = matrizColonia[f][c-1];
+			/* Vec : Centro - Matriz Colonia : Fila columna */
+			vec_vecindario[2][2] = matrizColonia[f][c];
+		}
+	}
+}else{
+	if(f == maxF - 1){
+		if(c == 0){
+			/* Vec : Arriba izquierda - Matriz Colonia : Fila anterior ultima columna */
+			vec_vecindario[0][0] = matrizColonia[f-1][maxC-1];
+			/* Vec : Arriba - Matriz Colonia : Fila anterior columna */
+			vec_vecindario[0][1] = matrizColonia[f-1][c];
+			/* Vec : Arriba derecha - Matriz Colonia : Fila anterior columna siguiente */
+			vec_vecindario[0][2] = matrizColonia[f-1][c+1];
+			/* Vec : Derecha - Matriz Colonia : Fila columna siguiente */
+			vec_vecindario[1][0] = matrizColonia[f][c+1];
+			/* Vec : Abajo Derecha - Matriz Colonia : Primera Fila columna siguiente */
+			vec_vecindario[1][1] = matrizColonia[0][c+1];
+			/* Vec : Abajo - Matriz Colonia : Primera fila columna */
+			vec_vecindario[1][2] = matrizColonia[0][c];
+			/* Vec : Abajo Izquierda - Matriz Colonia : Primera fila ultima columna */
+			vec_vecindario[2][0] = matrizColonia[0][maxC-1];
+			/* Vec : Izquierda - Matriz Colonia : Ultima fila ultima columna */
+			vec_vecindario[2][1] = matrizColonia[f][maxC-1];
+			/* Vec : Centro - Matriz Colonia : Fila columna */
+			vec_vecindario[2][2] = matrizColonia[f][c];
+		}else{
+			if(c == maxC - 1){
+				/* Vec : Arriba izquierda - Matriz Colonia : Fila anterior columna anterior */
+				vec_vecindario[0][0] = matrizColonia[f-1][c-1];
+				/* Vec : Arriba - Matriz Colonia : Fila anterior columna */
+				vec_vecindario[0][1] = matrizColonia[f-1][c];
+				/* Vec : Arriba derecha - Matriz Colonia : Fila anterior primera columna */
+				vec_vecindario[0][2] = matrizColonia[f-1][0];
+				/* Vec : Derecha - Matriz Colonia : Fila primera columna */
+				vec_vecindario[1][0] = matrizColonia[f][0];
+				/* Vec : Abajo Derecha - Matriz Colonia : Primera Fila primera columna */
+				vec_vecindario[1][1] = matrizColonia[0][0];
+				/* Vec : Abajo - Matriz Colonia : Primera fila columna */
+				vec_vecindario[1][2] = matrizColonia[0][c];
+				/* Vec : Abajo Izquierda - Matriz Colonia : Primera fila columna anterior */
+				vec_vecindario[2][0] = matrizColonia[0][c-1];
+				/* Vec : Izquierda - Matriz Colonia : Fila columna anterior */
+				vec_vecindario[2][1] = matrizColonia[f][c-1];
+				/* Vec : Centro - Matriz Colonia : Fila columna */
+				vec_vecindario[2][2] = matrizColonia[f][c];
+			}else{
+				/* Vec : Arriba izquierda - Matriz Colonia : Fila anterior columna anterior */
+				vec_vecindario[0][0] = matrizColonia[f-1][c-1];
+				/* Vec : Arriba - Matriz Colonia : Fila anterior columna */
+				vec_vecindario[0][1] = matrizColonia[f-1][c];
+				/* Vec : Arriba derecha - Matriz Colonia : Fila anterior columna siguiente */
+				vec_vecindario[0][2] = matrizColonia[f-1][c+1];
+				/* Vec : Derecha - Matriz Colonia : Fila columna siguiente */
+				vec_vecindario[1][0] = matrizColonia[f][c+1];
+				/* Vec : Abajo Derecha - Matriz Colonia : Primera Fila columna siguiente*/
+				vec_vecindario[1][1] = matrizColonia[0][c+1];
+				/* Vec : Abajo - Matriz Colonia : Primera fila columna */
+				vec_vecindario[1][2] = matrizColonia[0][c];
+				/* Vec : Abajo Izquierda - Matriz Colonia : Primera fila columna anterior */
+				vec_vecindario[2][0] = matrizColonia[0][c-1];
+				/* Vec : Izquierda - Matriz Colonia : Fila columna anterior */
+				vec_vecindario[2][1] = matrizColonia[f][c-1];
+				/* Vec : Centro - Matriz Colonia : Fila columna */
+				vec_vecindario[2][2] = matrizColonia[f][c];
+			}
+		}
+	}else{
+		if(c == 0){
+			/* Vec : Arriba izquierda - Matriz Colonia : Fila anterior ultima columna */
+			vec_vecindario[0][0] = matrizColonia[f-1][maxC-1];
+			/* Vec : Arriba - Matriz Colonia : Fila anterior columna */
+			vec_vecindario[0][1] = matrizColonia[f-1][c];
+			/* Vec : Arriba derecha - Matriz Colonia : Fila anterior columna siguiente */
+			vec_vecindario[0][2] = matrizColonia[f-1][c+1];
+			/* Vec : Derecha - Matriz Colonia : Fila columna siguiente */
+			vec_vecindario[1][0] = matrizColonia[f][c+1];
+			/* Vec : Abajo Derecha - Matriz Colonia : Fila siguiente columna siguiente*/
+			vec_vecindario[1][1] = matrizColonia[f+1][c+1];
+			/* Vec : Abajo - Matriz Colonia : Fila siguiente columna */
+			vec_vecindario[1][2] = matrizColonia[f+1][c];
+			/* Vec : Abajo Izquierda - Matriz Colonia : Fila siguiente ultima columna */
+			vec_vecindario[2][0] = matrizColonia[f+1][maxC-1];
+			/* Vec : Izquierda - Matriz Colonia : Fila ultima columna */
+			vec_vecindario[2][1] = matrizColonia[f][maxC-1];
+			/* Vec : Centro - Matriz Colonia : Fila columna */
+			vec_vecindario[2][2] = matrizColonia[f][c];
+		}else{
+			if(c == maxC - 1){
+				/* Vec : Arriba izquierda - Matriz Colonia : Fila anterior columna anterior */
+				vec_vecindario[0][0] = matrizColonia[f-1][c-1];
+				/* Vec : Arriba - Matriz Colonia : Fila anterior columna */
+				vec_vecindario[0][1] = matrizColonia[f-1][c];
+				/* Vec : Arriba derecha - Matriz Colonia : Fila anterior primera columna */
+				vec_vecindario[0][2] = matrizColonia[f-1][0];
+				/* Vec : Derecha - Matriz Colonia : Fila primera columna */
+				vec_vecindario[1][0] = matrizColonia[f][0];
+				/* Vec : Abajo Derecha - Matriz Colonia : Fila siguiente primera columna*/
+				vec_vecindario[1][1] = matrizColonia[f+1][0];
+				/* Vec : Abajo - Matriz Colonia : Fila siguiente columna */
+				vec_vecindario[1][2] = matrizColonia[f+1][c];
+				/* Vec : Abajo Izquierda - Matriz Colonia : Fila siguiente columna anterior */
+				vec_vecindario[2][0] = matrizColonia[f+1][c-1];
+				/* Vec : Izquierda - Matriz Colonia : Fila columna anterior */
+				vec_vecindario[2][1] = matrizColonia[f][c-1];
+				/* Vec : Centro - Matriz Colonia : Fila columna */
+				vec_vecindario[2][2] = matrizColonia[f][c];
+			}else{
+				/* Vec : Arriba izquierda - Matriz Colonia : Fila anterior columna anterior */
+				vec_vecindario[0][0] = matrizColonia[f-1][c-1];
+				/* Vec : Arriba - Matriz Colonia : Fila anterior columna */
+				vec_vecindario[0][1] = matrizColonia[f-1][c];
+				/* Vec : Arriba derecha - Matriz Colonia : Fila anterior columna siguiente */
+				vec_vecindario[0][2] = matrizColonia[f-1][c+1];
+				/* Vec : Derecha - Matriz Colonia : Fila columna siguiente */
+				vec_vecindario[1][0] = matrizColonia[f][c+1];
+				/* Vec : Abajo Derecha - Matriz Colonia : Fila siguiente columna siguiente*/
+				vec_vecindario[1][1] = matrizColonia[f+1][c+1];
+				/* Vec : Abajo - Matriz Colonia : Fila siguiente columna */
+				vec_vecindario[1][2] = matrizColonia[f+1][c];
+				/* Vec : Abajo Izquierda - Matriz Colonia : Fila siguiente columna anterior */
+				vec_vecindario[2][0] = matrizColonia[f+1][c-1];
+				/* Vec : Izquierda - Matriz Colonia : Fila columna anterior */
+				vec_vecindario[2][1] = matrizColonia[f][c-1];
+				/* Vec : Centro - Matriz Colonia : Fila columna */
+				vec_vecindario[2][2] = matrizColonia[f][c]; 
+			}
+		}
+	}
+}
